@@ -1,68 +1,59 @@
 //{ Driver Code Starts
-//Initial template for Java
-
 import java.io.*;
 import java.util.*;
 
-
-// } Driver Code Ends
-//User function template for Java
-
-class Solution
-{
-    public static void sort012(int a[], int n)
-    {
-        // code here 
-        int zeros = 0;
-        int ones = 0;
-        int twos = 0;
-        
-        for(int i=0; i<n; i++){
-            if(a[i]==0){
-                zeros++;
-            }else if(a[i]==1){
-                ones++;
-            }else{
-                twos++;
-            }
-        }
-        
-        for(int i=0; i<zeros; i++){
-            a[i] = 0;
-        }
-        for(int i=zeros; i<zeros+ones;i++){
-            a[i] = 1;
-        }
-        for(int i=ones+zeros; i<ones+twos+zeros; i++){
-            a[i] = 2;
-        }
-    }
-}
-
-//{ Driver Code Starts.
-
 class GFG {
-    
-    public static void main (String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int t = Integer.parseInt(br.readLine().trim()); //Inputting the testcases
-        while(t-->0){
-            int n = Integer.parseInt(br.readLine().trim());
-            int arr[] = new int[n];
-            String inputLine[] = br.readLine().trim().split(" ");
-            for(int i=0; i<n; i++){
-                arr[i] = Integer.parseInt(inputLine[i]);
+
+        int t = Integer.parseInt(br.readLine());
+
+        while (t-- > 0) {
+            String input = br.readLine();
+            String[] inputArray = input.split("\\s+");
+            ArrayList<Integer> a = new ArrayList<>();
+
+            for (String s : inputArray) {
+                a.add(Integer.parseInt(s));
             }
-            Solution ob=new Solution();
-            ob.sort012(arr, n);
-            StringBuffer str = new StringBuffer();
-            for(int i=0; i<n; i++){
-                str.append(arr[i]+" ");
+
+            Solution ob = new Solution();
+            ob.sort012(a);
+
+            for (int num : a) {
+                System.out.print(num + " ");
             }
-            System.out.println(str);
+            System.out.println();
         }
     }
 }
 
-
 // } Driver Code Ends
+
+
+class Solution {
+    // Function to sort an array of 0s, 1s, and 2s
+    public void sort012(ArrayList<Integer> arr) {
+        // code here
+        int mid = 0, low = 0, high = arr.size()-1;
+        
+        while(mid <= high){
+            if(arr.get(mid) == 0){
+                swap(arr, low, mid);
+                low++;
+                mid++;
+            }else if(arr.get(mid) == 1){
+                mid++;
+            }else{
+                swap(arr, high, mid);
+                high--;
+            }
+        }
+    }
+    
+    static void swap(ArrayList<Integer> arr, int i, int j){
+        int temp = arr.get(i);
+        arr.set(i, arr.get(j));
+        arr.set(j, temp);
+    }
+}
