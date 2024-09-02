@@ -1,83 +1,74 @@
 //{ Driver Code Starts
-//Initial Template for Java
+// Initial Template for Java
 
 /*package whatever //do not write package name here */
 
 import java.io.*;
 import java.util.*;
 
-
 class Array {
-    
+
     // Driver code
-	public static void main (String[] args) throws IOException{
-		// Taking input using buffered reader
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
-		int testcases = Integer.parseInt(br.readLine());
-		
-		// looping through all testcases
-		while(testcases-- > 0){
-		    String line = br.readLine();
-		    String[] element = line.trim().split("\\s+");
-		    int sizeOfArray = Integer.parseInt(element[0]);
-		    int K = Integer.parseInt(element[1]);
-		    
-		    int arr [] = new int[sizeOfArray];
-		    
-		    line = br.readLine();
-		    String[] elements = line.trim().split("\\s+");
-		    for(int i = 0;i<sizeOfArray;i++){
-		        arr[i] = Integer.parseInt(elements[i]);
-		    }
-		    
-		    Solution obj = new Solution();
-		    int res = obj.lenOfLongSubarr(arr, sizeOfArray, K);
-		    
-		    System.out.println(res);
-		}
-	}
+    public static void main(String[] args) throws IOException {
+        // Taking input using buffered reader
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int testcases = Integer.parseInt(br.readLine());
+
+        // looping through all testcases
+        while (testcases-- > 0) {
+            String line = br.readLine();
+            String[] element = line.trim().split("\\s+");
+            int sizeOfArray = Integer.parseInt(element[0]);
+            int K = Integer.parseInt(element[1]);
+
+            int arr[] = new int[sizeOfArray];
+
+            line = br.readLine();
+            String[] elements = line.trim().split("\\s+");
+            for (int i = 0; i < sizeOfArray; i++) {
+                arr[i] = Integer.parseInt(elements[i]);
+            }
+
+            Solution obj = new Solution();
+            int res = obj.lenOfLongSubarr(arr, sizeOfArray, K);
+
+            System.out.println(res);
+        }
+    }
 }
-
-
 
 // } Driver Code Ends
 
 
-//User function Template for Java
+// User function Template for Java
 
-class Solution{
-    
-   
+class Solution {
     // Function for finding maximum and value pair
-    public static int lenOfLongSubarr (int A[], int N, int K) {
-        //Complete the function
-        
-        HashMap<Integer, Integer> map = new HashMap<>();
-        
-        int maxLength = 0;
-        int cumulativeSum = 0;
-
+    public static int lenOfLongSubarr(int A[], int N, int K) {
+        // Complete the function
+        Map<Integer, Integer> preSumMap = new HashMap<>();
+        int sum = 0;
+        int maxLen = 0;
         for (int i = 0; i < N; i++) {
-            cumulativeSum += A[i];
+            sum += A[i];
 
-            if (cumulativeSum == K) {
-                maxLength = i + 1;  
+            if (sum == K) {
+                maxLen = Math.max(maxLen, i + 1);
             }
 
-            if (map.containsKey(cumulativeSum - K)) {
-                maxLength = Math.max(maxLength, i - map.get(cumulativeSum - K));
+            int rem = sum - K;
+
+            if (preSumMap.containsKey(rem)) {
+                int len = i - preSumMap.get(rem);
+                maxLen = Math.max(maxLen, len);
             }
 
-            if (!map.containsKey(cumulativeSum)) {
-                map.put(cumulativeSum, i);
+            if (!preSumMap.containsKey(sum)) {
+                preSumMap.put(sum, i);
             }
         }
 
-        return maxLength;
+        return maxLen;
     }
-    
-    
 }
-
-
