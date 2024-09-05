@@ -4,10 +4,11 @@ Welcome to my GeeksForGeeks Solutions repository! This repository contains all m
 
 ## 🌟 Achievements
 
-<img src="./50daysbadgeleetcode.png" alt="50-Day LeetCode Badge" width="200"/>
+<img src="./gee-streak-challenge.png" alt="30 day gfg Badge" width="200"/>
 
 ## 📚 Solutions
 This repository includes solutions for problems categorized by difficulty:
+- Basic
 - Easy
 - Medium
 - Hard
@@ -15,6 +16,6 @@ This repository includes solutions for problems categorized by difficulty:
 Feel free to explore the code, and if you find something helpful, don't hesitate to star the repository! ⭐
 
 ## 🔗 Useful Links
-- [LeetCode Profile](https://leetcode.com/khagendrasamal1) - Visit my GeeksForGeeks profile to see my ongoing progress and challenges.
+- [LeetCode Profile]([https://leetcode.com/khagendrasamal1](https://www.geeksforgeeks.org/user/khagendra_1/)) - Visit my GeeksForGeeks profile to see my ongoing progress and challenges.
 
 Thank you for visiting my GeeksForGeeks Solutions repository! 🚀
