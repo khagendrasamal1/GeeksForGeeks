@@ -55,49 +55,26 @@ class Node{
 */
 
 class Solution {
-    
-    public static Node reverse(Node head){
-        Node prev = null;
-        Node curr = head;
-        Node next = null;
+    int addHelper(Node temp){
+        if(temp == null)    return 1;
         
-        while(curr != null){
-            next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
-        }
-        return prev;
+        int carry = addHelper(temp.next);
         
+        temp.data += carry;
+        
+        if(temp.data < 10)  return 0;
+        temp.data = 0;
+        return 1;
     }
-    
     public Node addOne(Node head) {
         // code here.
-        head = reverse(head);
+        int carry = addHelper(head);
         
-        Node curr = head, prev = head;
-        
-        int sum = curr.data+1;
-        curr.data = sum%10;
-        int carry = sum/10;
-        
-        curr = curr.next;
-        
-        while(curr != null){
-            sum = carry+curr.data;
-            curr.data = sum%10;
-            carry = sum/10;
-            
-            prev = curr;
-            curr = curr.next;
+        if(carry == 1){
+            Node newNode = new Node(1);
+            newNode.next = head;
+            head = newNode;
         }
-        
-        if(carry != 0){
-            prev.next = new Node(carry);
-        }
-        
-        head = reverse(head);
-        
         return head;
     }
 }
