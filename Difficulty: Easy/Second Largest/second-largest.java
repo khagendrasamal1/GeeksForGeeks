@@ -27,17 +27,21 @@ public class Main {
 class Solution {
     public int print2largest(int[] arr) {
         // Code Here
-        int largest = arr[0];
-        int sec_largest = -1;
+        if(arr.length < 2){
+            return -1;
+        }
         
-        for(int i=0; i<arr.length; i++){
-            if(arr[i] > largest){
-                sec_largest = largest;
-                largest = arr[i];
-            }else if(arr[i] < largest && arr[i] > sec_largest){
-                sec_largest = arr[i];
+        int largest = Integer.MIN_VALUE;
+        int secLargest = Integer.MIN_VALUE;
+        
+        for(int num : arr){
+            if(num > largest){
+                secLargest = largest;
+                largest = num;
+            }else if(num > secLargest && num != largest){
+                secLargest = num;
             }
         }
-        return sec_largest;
+        return (secLargest == Integer.MIN_VALUE) ? -1 : secLargest;
     }
 }
