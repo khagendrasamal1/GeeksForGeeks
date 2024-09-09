@@ -5,7 +5,7 @@ import java.io.*;
 
 // } Driver Code Ends
 
-class Solution
+class Solution 
 {
     //Function to find the smallest positive number missing from the array.
     static int missingNumber(int arr[], int size)
