@@ -1,44 +1,31 @@
 //{ Driver Code Starts
-//Initial Template for Java
+// Initial Template for Java
 
-import java.util.*;
 import java.io.*;
 import java.lang.*;
+import java.util.*;
 
-class Driver
-{
-    public static void main(String args[])throws IOException
-    {
+class Driver {
+    public static void main(String args[]) throws IOException {
         BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
         int t = Integer.parseInt(read.readLine());
-        
-        while(t-- >0)
-        {
+
+        while (t-- > 0) {
             String str = read.readLine();
-            System.out.println(new Reverse().reverseWord(str));
+            System.out.println(new Reverse().reverseString(str));
         }
     }
 }
 // } Driver Code Ends
 
 
-//User function Template for Java
+// User function Template for Java
 
-
-class Reverse
-{
+class Reverse {
     // Complete the function
     // str: input string
-    public static String reverseWord(String str)
-    {
+    public static String reverseString(String s) {
         // Reverse the string str
-        char ch[] = str.toCharArray();
-        int n = ch.length;
-        String s = "";
-        
-        for(int i=n-1; i>=0; i--){
-            s += ch[i];
-        }
-        return s;
+        return new StringBuilder(s).reverse().toString();
     }
 }
