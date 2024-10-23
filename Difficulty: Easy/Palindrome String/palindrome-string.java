@@ -28,8 +28,10 @@ class Solution {
         int i = 0;
         int j = S.length()-1;
         
+        String s1 = S.toLowerCase();
+        
         while(i < j){
-            if(S.charAt(i) != S.charAt(j)){
+            if(s1.charAt(i) != s1.charAt(j)){
                 return 0;
             }
             i++;
