@@ -26,6 +26,13 @@ class Reverse {
     // str: input string
     public static String reverseString(String s) {
         // Reverse the string str
-        return new StringBuilder(s).reverse().toString();
+        StringBuilder sb = new StringBuilder(); 
+        int n = s.length();
+
+        for (int i = n - 1; i >= 0; i--) {
+            sb.append(s.charAt(i)); 
+        }
+
+        return sb.toString();
     }
 }
