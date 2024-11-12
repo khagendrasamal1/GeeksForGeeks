@@ -1,59 +1,50 @@
 //{ Driver Code Starts
-//Initial Template for Java
+// Initial Template for Java
 
 import java.io.*;
 import java.util.*;
 
-class GFG
-{
-    public static void main(String args[])throws IOException
-    {
+class GFG {
+    public static void main(String args[]) throws IOException {
         Scanner sc = new Scanner(System.in);
         int t = sc.nextInt();
-        while(t-- > 0)
-        {
+        while (t-- > 0) {
             String s;
             s = sc.next();
-            
+
             Solution ob = new Solution();
-            
-            System.out.println(ob.reverseWords (s));    
+
+            System.out.println(ob.reverseWords(s));
         }
     }
 }
 // } Driver Code Ends
 
 
-//User function Template for Java
-class Solution
-{
-   
-    String reverseWords(String S)
-    {
+// User function Template for Java
+class Solution {
+    public String reverseWords(String s) {
         // your code here
-        char arr[] = S.toCharArray();
+        Stack<Character> st = new Stack<>();
         
-        int n = arr.length;
+        StringBuilder ans = new StringBuilder();
         
-        int i = 0;
-        
-        for(int j=0; j<=n; j++){
-            if(j == n || arr[j] == '.'){
-                reverse(arr, i, j-1);
-                i = j+1;
+        for(int i=0; i<s.length(); i++){
+            
+            if(s.charAt(i) == '.'){
+                while(!st.isEmpty()){
+                    ans.append(st.pop());
+                }
+                ans.append('.');
+            }else{
+                st.push(s.charAt(i));
             }
         }
-        return new String(arr);
-    }
-    
-    void reverse(char arr[], int i, int j){
-        while(i<j){
-            char temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
-            
-            i++;
-            j--;
+        
+        while(!st.isEmpty()){
+            ans.append(st.pop());
         }
+        
+        return ans.toString();
     }
 }
