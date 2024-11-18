@@ -41,7 +41,9 @@ class GFG {
             head = ob.reverseList(head);
             printList(head);
             t--;
-        }
+        
+System.out.println("~");
+}
     }
 }
 
@@ -69,6 +71,7 @@ class Solution {
         Node temp = head;
         Node prev = null;
         Node front;
+        
         
         while(temp != null){
             front = temp.next;
