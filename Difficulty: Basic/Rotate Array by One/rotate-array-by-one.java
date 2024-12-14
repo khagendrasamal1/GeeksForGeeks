@@ -31,7 +31,9 @@ class GFG {
                 System.out.print(num + " ");
             }
             System.out.println();
-        }
+        
+System.out.println("~");
+}
     }
 }
 
@@ -42,14 +44,20 @@ class GFG {
 
 class Solution {
     public void rotate(int[] arr) {
-        
-        int n = arr.length;
         // code here
-        int temp = arr[n-1];
-        
-        for(int i=n-1; i>0; i--){
-            arr[i] = arr[i-1];
+        int n = arr.length;
+        reverse(arr, 0, n-1);
+        reverse(arr, 0, 0);
+        reverse(arr, 1, n-1);
+    }
+    
+    public void reverse(int[] arr, int i, int j){
+        while(i <= j){
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            i++;
+            j--;
         }
-        arr[0] = temp;
     }
 }
