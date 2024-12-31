@@ -1,51 +1,63 @@
 //{ Driver Code Starts
-//Initial Template for Java
+// Initial Template for Java
 
 import java.io.*;
+import java.lang.*;
 import java.util.*;
 
-class GFG{
-    public static void main(String args[])throws IOException
-    {
-        BufferedReader read = new BufferedReader(new InputStreamReader(System.in));
-        int t = Integer.parseInt(read.readLine());
-        while(t-- > 0)
-        {
-            int N = Integer.parseInt(read.readLine());
-            String input_line[] = read.readLine().trim().split("\\s+");
-            int Arr[]= new int[N];
-            for(int i = 0; i < N; i++)
-                Arr[i] = Integer.parseInt(input_line[i]);
-            int k = Integer.parseInt(read.readLine());
-            
-            Solution ob = new Solution();
-            System.out.println(ob.findSubArraySum(Arr, N, k));
+public class Main {
+    public static void main(String args[]) throws IOException {
+        // taking input using class Scanner
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int t = Integer.parseInt(br.readLine());
+
+        while (t-- > 0) {
+            // taking total number of elements
+            int k = Integer.parseInt(br.readLine());
+            String line = br.readLine();
+            String[] tokens = line.split(" ");
+
+            // Create an ArrayList to store the integers
+            ArrayList<Integer> array = new ArrayList<>();
+
+            // Parse the tokens into integers and add to the array
+            for (String token : tokens) {
+                array.add(Integer.parseInt(token));
+            }
+
+            int[] arr = new int[array.size()];
+            int idx = 0;
+            for (int i : array) arr[idx++] = i;
+            int res = new Solution().countSubarrays(arr, k);
+
+            System.out.print(res);
+            System.out.println();
+            System.out.println("~");
         }
     }
 }
 // } Driver Code Ends
 
 
-//User function Template for Java
-
-class Solution
-{
-    static int findSubArraySum(int Arr[], int N, int k)
-    {
+// User function Template for Java
+class Solution {
+    public int countSubarrays(int arr[], int k) {
         // code here
+        Map<Integer, Integer> map = new HashMap<>();
+        
         int sum = 0;
         int cnt = 0;
         
-        Map<Integer, Integer> map = new HashMap<>();
-        map.put(0,1);
-        
-        for(int num : Arr){
+        for(int num : arr){
             sum += num;
             
-            int rem = sum - k;
+            if(sum == k){
+                cnt++;
+            }
             
-            cnt += map.getOrDefault(rem, 0);
-            
+            if(map.containsKey(sum-k)){
+                cnt += map.get(sum-k);
+            }
             map.put(sum, map.getOrDefault(sum, 0)+1);
         }
         return cnt;
