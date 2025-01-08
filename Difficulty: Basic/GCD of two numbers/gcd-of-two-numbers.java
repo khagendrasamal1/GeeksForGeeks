@@ -21,7 +21,9 @@ class GFG {
             
             System.out.println(res);
             
-        }
+        
+System.out.println("~");
+}
     }
 }
 
@@ -32,11 +34,12 @@ class GFG {
 class Solution {
     public static int gcd(int a, int b) {
         // code here
-        if(b == 0){
-            return a;
+        while(b != 0){
+            int temp = b;
+            b = a%b;
+            a = temp;
         }
-        
-        return gcd(b, a%b);
+        return a;
     }
 }
         
