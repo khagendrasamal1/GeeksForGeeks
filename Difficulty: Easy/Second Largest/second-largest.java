@@ -29,18 +29,13 @@ public class Main {
 class Solution {
     public int getSecondLargest(int[] arr) {
         // Code Here
-        int n = arr.length;
-        
         int largest = -1, secLargest = -1;
         
-        for(int i=0; i<n; i++){
+        for(int i=0; i<arr.length; i++){
             if(arr[i] > largest){
+                secLargest = largest;
                 largest = arr[i];
-            }
-        }
-        
-        for(int i=0; i<n; i++){
-            if(arr[i] > secLargest && arr[i] != largest){
+            }else if(arr[i] > secLargest && arr[i] != largest){
                 secLargest = arr[i];
             }
         }
