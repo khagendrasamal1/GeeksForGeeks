@@ -98,7 +98,9 @@ class GfG {
             else
                 System.out.println("false");
             t--;
-        }
+        
+System.out.println("~");
+}
     }
 }
 
@@ -112,7 +114,6 @@ class Solution {
     boolean isBST(Node root) {
         // code here.
         return isValidBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
-        
     }
     
     boolean isValidBST(Node root, int minVal, int maxVal){
