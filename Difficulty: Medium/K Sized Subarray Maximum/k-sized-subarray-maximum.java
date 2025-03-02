@@ -28,7 +28,7 @@ public class Main {
             int idx = 0;
             for (int i : array) arr[idx++] = i;
             int k = Integer.parseInt(br.readLine());
-            ArrayList<Integer> res = new Solution().max_of_subarrays(arr, k);
+            ArrayList<Integer> res = new Solution().maxOfSubarrays(arr, k);
 
             // printing the elements of the ArrayList
             for (int i = 0; i < res.size(); i++) System.out.print(res.get(i) + " ");
@@ -40,27 +40,26 @@ public class Main {
 // } Driver Code Ends
 
 
-// User function template for JAVA
-
 class Solution {
-    // Function to find maximum of each subarray of size k.
-    public ArrayList<Integer> max_of_subarrays(int arr[], int k) {
-        // Your code here
+    public ArrayList<Integer> maxOfSubarrays(int arr[], int k) {
+        // code here
+        int n = arr.length;
+
         ArrayList<Integer> ans = new ArrayList<>();
-        
+
         Deque<Integer> dq = new ArrayDeque<>();
-        
-        for(int i=0; i<arr.length; i++){
+
+        for(int i=0; i<n; i++){
             if(!dq.isEmpty() && dq.peekFirst() <= i-k){
                 dq.pollFirst();
             }
-            
+
             while(!dq.isEmpty() && arr[dq.peekLast()] < arr[i]){
                 dq.pollLast();
             }
-            
+
             dq.offerLast(i);
-            
+
             if(i >= k-1){
                 ans.add(arr[dq.peekFirst()]);
             }
