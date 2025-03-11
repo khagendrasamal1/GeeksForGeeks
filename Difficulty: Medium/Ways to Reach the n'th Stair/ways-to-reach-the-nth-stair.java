@@ -31,13 +31,9 @@ class GFG {
 
 
 class Solution {
-    // Function to count number of ways to reach the nth stair.
     int countWays(int n) {
-
         // your code here
-        if(n <= 3){
-            return n;
-        }
+        if(n <= 3)  return n;
         
         int a = 3;
         int b = 2;
