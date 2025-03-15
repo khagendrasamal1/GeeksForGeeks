@@ -6,10 +6,11 @@ import java.util.*;
 
 
 // } Driver Code Ends
+
 class Solution {
 
     public int minCoins(int coins[], int sum) {
-        // Your code goes here
+        // code here
         int dp[] = new int[sum+1];
         
         Arrays.fill(dp, sum+1);
@@ -21,9 +22,11 @@ class Solution {
                 dp[i] = Math.min(dp[i], dp[i-c]+1);
             }
         }
+        
         return dp[sum] <= sum ? dp[sum] : -1;
     }
 }
+
 
 //{ Driver Code Starts.
 
