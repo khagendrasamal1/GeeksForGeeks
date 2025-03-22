@@ -36,27 +36,27 @@ class Main {
 class Solution {
     static ArrayList<Integer> subarraySum(int[] arr, int target) {
         // code here
-        
-        ArrayList<Integer> result = new ArrayList<>();
         int n = arr.length;
-        int start = 0;
-        int currentSum = 0;
-
-        for (int end = 0; end < n; end++) {
-            currentSum += arr[end];
-
-            while (currentSum > target && start <= end) {
-                currentSum -= arr[start];
-                start++;
+        
+        ArrayList<Integer> list = new ArrayList<>();
+        
+        int i = 0, sum = 0;
+        
+        for(int j=0; j<n; j++){
+            sum += arr[j];
+            
+            while(sum > target && i <= j){
+                sum -= arr[i];
+                i++;
             }
-
-            if (currentSum == target) {
-                result.add(start + 1); 
-                result.add(end + 1);  
-                return result;
+            
+            if(sum == target){
+                list.add(i+1);
+                list.add(j+1);
+                return list;
             }
         }
-        result.add(-1);
-        return result;
+        list.add(-1);
+        return list;
     }
 }
