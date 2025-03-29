@@ -1,94 +1,86 @@
 //{ Driver Code Starts
-import java.io.*;
-import java.lang.*;
+// Initial Template for Java
 import java.util.*;
 
-class Job {
-    int id, profit, deadline;
-    Job(int x, int y, int z){
-        this.id = x;
-        this.deadline = y;
-        this.profit = z; 
-    }
-}
 
-class GfG {
-    public static void main(String[] args) throws IOException{
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        
-        //testcases
-		int t = Integer.parseInt(br.readLine().trim());
-		while(t-->0){
-            String inputLine[] = br.readLine().trim().split(" ");
-            
-            //size of array
-            int n = Integer.parseInt(inputLine[0]);
-            Job[] arr = new Job[n];
-            inputLine = br.readLine().trim().split(" ");
-            
-            //adding id, deadline, profit
-            for(int i=0, k=0; i<n; i++){
-                arr[i] = new Job(Integer.parseInt(inputLine[k++]), Integer.parseInt(inputLine[k++]), Integer.parseInt(inputLine[k++]));
-            }
-            
-            Solution ob = new Solution();
-            
-            //function call
-            int[] res = ob.JobScheduling(arr, n);
-            System.out.println (res[0] + " " + res[1]);
-        }
-    }
-}
 // } Driver Code Ends
 
+class Solution {
 
-class Solution
-{
-    //Function to find the maximum profit and the number of jobs done.
-    int[] JobScheduling(Job arr[], int n)
-    {
-        // Your code here
-        Arrays.sort(arr, (a,b) -> (b.profit - a.profit));
+    public ArrayList<Integer> jobSequencing(int[] deadline, int[] profit) {
+        // code here
+        int n = deadline.length;
+        
+        ArrayList<Integer> list = new ArrayList<>();
+        
+        Job jobs[] = new Job[n];
+        
+        for(int i=0; i<n; i++){
+            jobs[i] = new Job(deadline[i], profit[i]);
+        }
+        
+        Arrays.sort(jobs, (a, b) -> b.profit - a.profit);
         
         int maxDeadline = 0;
-        for(int i=0; i<n; i++){
-            if(arr[i].deadline > maxDeadline){
-                maxDeadline = arr[i].deadline;
-            }
+        
+        for(int d : deadline){
+            maxDeadline = Math.max(d, maxDeadline);
         }
         
-        int ans[] = new int[maxDeadline + 1];
+        boolean occ[] = new boolean[maxDeadline + 1];
         
-        for(int i=0; i<=maxDeadline; i++){
-            ans[i] = -1;
-        }
+        int maxProfit = 0, cnt = 0;
         
-        int jobs = 0, profit = 0;
-        
-        for(int i=0; i<n; i++){
-            for(int j=arr[i].deadline; j>0; j--){
-                if(ans[j] == -1){
-                    ans[j] = i;
-                    jobs++;
-                    profit += arr[i].profit;
+        for(Job job : jobs){
+            for(int j = job.deadline; j>0; j--){
+                if(!occ[j]){
+                    occ[j] = true;
+                    maxProfit += job.profit;
+                    cnt++;
                     break;
                 }
             }
         }
-        int result[] = new int[2];
-        result[0] = jobs;
-        result[1] =  profit;
-        return result;
+        
+        list.add(cnt);
+        list.add(maxProfit);
+        
+        return list;
+    }
+    
+    class Job{
+        int deadline, profit;
+        
+        Job(int d, int p){
+            this.deadline = d;
+            this.profit = p;
+        }
     }
 }
 
-/*
-class Job {
-    int id, profit, deadline;
-    Job(int x, int y, int z){
-        this.id = x;
-        this.deadline = y;
-        this.profit = z; 
+
+//{ Driver Code Starts.
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = Integer.parseInt(sc.nextLine().trim());
+
+        while (t-- > 0) {
+            String[] deadlineInput = sc.nextLine().trim().split("\\s+");
+            int[] deadline =
+                Arrays.stream(deadlineInput).mapToInt(Integer::parseInt).toArray();
+
+            String[] profitInput = sc.nextLine().trim().split("\\s+");
+            int[] profit =
+                Arrays.stream(profitInput).mapToInt(Integer::parseInt).toArray();
+            Solution obj = new Solution();
+            ArrayList<Integer> result = obj.jobSequencing(deadline, profit);
+            System.out.println(result.get(0) + " " + result.get(1));
+            System.out.println("~");
+        }
+
+        sc.close();
     }
 }
-*/
+// } Driver Code Ends
