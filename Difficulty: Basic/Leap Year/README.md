@@ -1,4 +1,4 @@
-<h2><a href="https://www.geeksforgeeks.org/problems/leap-year0943/1?itm_source=geeksforgeeks&itm_medium=article&itm_campaign=practice_card">Leap Year</a></h2><h3>Difficulty Level : Difficulty: Basic</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 20px;">You are given an Integer <strong>n</strong>. Return <strong>true </strong>if It is a Leap Year otherwise return <strong>false</strong>.</span></p>
+<h2><a href="https://www.geeksforgeeks.org/problems/leap-year0943/1">Leap Year</a></h2><h3>Difficulty Level : Difficulty: Basic</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 20px;">You are given an Integer <strong>n</strong>. Return <strong>true </strong>if It is a Leap Year otherwise return <strong>false</strong>.</span></p>
 <p><span style="font-size: 18px;"><strong>Examples:</strong></span></p>
 <pre><span style="font-size: 18px;"><strong>Input: </strong>n = 4
 <strong>Output:</strong> true
