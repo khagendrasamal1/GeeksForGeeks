@@ -1,4 +1,4 @@
-<h2><a href="https://www.geeksforgeeks.org/problems/largest-subarray-of-0s-and-1s/1?timeMachineDate=2025-01-16">Largest subarray of 0's and 1's</a></h2><h3>Difficulty Level : Difficulty: Easy</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">Given an array <strong>arr</strong> of 0s and 1s. Find and return the length of the <strong>longest</strong> subarray with <strong>equal</strong> number of 0s and 1s.</span></p>
+<h2><a href="https://www.geeksforgeeks.org/problems/largest-subarray-of-0s-and-1s/1">Largest subarray of 0's and 1's</a></h2><h3>Difficulty Level : Difficulty: Easy</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">Given an array <strong>arr</strong> of 0s and 1s. Find and return the length of the <strong>longest</strong> subarray with <strong>equal</strong> number of 0s and 1s.</span></p>
 <p><span style="font-size: 18px;"><strong>Examples:</strong></span></p>
 <pre><span style="font-size: 18px;"><strong>Input: </strong>arr[] = [1, 0, 1, 1, 1, 0, 0]
 <strong>Output: </strong>6<strong>
