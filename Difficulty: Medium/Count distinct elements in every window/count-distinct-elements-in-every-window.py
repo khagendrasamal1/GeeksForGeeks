@@ -2,14 +2,15 @@ class Solution:
     def countDistinct(self, arr, k):
         # Code here
         n = len(arr)
+        ans = []
         
         freq = {}
-        ans = []
         
         for i in range(k):
             freq[arr[i]] = freq.get(arr[i], 0) + 1
-        
+            
         ans.append(len(freq))
+        
         
         for i in range(k, n):
             if freq[arr[i-k]] == 1:
@@ -20,7 +21,5 @@ class Solution:
             freq[arr[i]] = freq.get(arr[i], 0) + 1
             
             ans.append(len(freq))
-            
+        
         return ans
-        
-        
