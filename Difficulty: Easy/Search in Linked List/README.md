@@ -1,13 +1,5 @@
-<h2><a href="https://www.geeksforgeeks.org/problems/search-in-linked-list-1664434326/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=search-in-linked-list-1664434326">Search in Linked List</a></h2><h3>Difficulty Level : Difficulty: Easy</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">Given a linked list of <strong>n</strong> nodes and a<strong> key</strong> , the task is to check if the key&nbsp;is present in the linked list or&nbsp;not.</span></p>
+<h2><a href="https://www.geeksforgeeks.org/problems/search-in-linked-list-1664434326/1?page=2&category=Linked%20List&difficulty=Basic%2CEasy&status=unsolved&sortBy=submissions">Search in Linked List</a></h2><h3>Difficulty Level : Difficulty: Easy</h3><hr><div class="problems_problem_content__Xm_eO"><p><span style="font-size: 18px;">Given a linked list with the <strong>head</strong> node and a<strong> key</strong>, the task is to check if the key is present in the linked list or not. Return <strong>true</strong> if key is <strong>present</strong>, else return <strong>false</strong>.</span></p>
 <p><strong><span style="font-size: 18px;">Example:</span></strong></p>
-<pre><strong><span style="font-size: 18px;">Input:
-</span></strong><span style="font-size: 18px;">n = 4
-1-&gt;2-&gt;3-&gt;4
-Key = 3
-<strong>Output:
-</strong>True
-<strong>Explanation:</strong>
-3 is present in Linked List, so the function returns true.</span></pre>
-<p><strong><span style="font-size: 18px;">Your Task:</span></strong><br><span style="font-size: 18px;">Your task is to complete the given function <strong>searchKey</strong>(), which takes a <strong>head </strong>reference and <strong>key</strong> as Input&nbsp;and returns true or false boolean value by checking the key is present or not in the linked list.</span></p>
-<p><span style="font-size: 18px;"><strong>Constraint:</strong><br>1 &lt;= n &lt;= 10<sup>5</sup><br>1 &lt;= key &lt;= 10<sup>5</sup></span></p>
-<p><strong><span style="font-size: 18px;">Expected Time Complexity: </span></strong><span style="font-size: 18px;">O(n)</span><br><strong><span style="font-size: 18px;">Expected Space Complexity: </span></strong><span style="font-size: 18px;">O(1)</span></p></div>
+<pre><span style="font-size: 18px;"><strong>Input:</strong> </span><span style="font-size: 18px;">key = 3,<br>&nbsp; &nbsp; &nbsp;<img src="https://media.geeksforgeeks.org/img-practice/prod/addEditProblem/910053/Web/Other/blobid0_1756118492.jpg" width="550" height="73">&nbsp;<br></span><span style="font-size: 18px;"><strong>Output:</strong> true <br></span><span style="font-size: 18px;"><strong>Explanation:</strong> 3 is present in Linked List.</span></pre>
+<pre><span style="font-size: 18px;"><strong>Input:</strong> </span><span style="font-size: 18px;">key = 4,<br>&nbsp; &nbsp;<img src="https://media.geeksforgeeks.org/img-practice/prod/addEditProblem/910053/Web/Other/blobid1_1756118574.jpg" width="490" height="75"><br></span><span style="font-size: 18px;"><strong>Output:</strong> false<br></span><span style="font-size: 18px;"><strong>Explanation:</strong> 4 is not present in Linked List.</span></pre>
+<p><span style="font-size: 18px;"><strong>Constraint:</strong><br>1 ≤ Number of nodes ≤ 10<sup>5</sup><br>1 ≤ node.data, key ≤ 10<sup>5</sup></span></p></div><br><p><span style=font-size:18px><strong>Topic Tags : </strong><br><code>Linked List</code>&nbsp;<code>Data Structures</code>&nbsp;
