@@ -1,14 +1,14 @@
 class Solution:
 	def twoSum(self, arr, target):
 		# code here
-		seen = set()
+		freq = {}
 		
-		for num in arr:
-		    extra = target - num
+		for i, num in enumerate(arr):
+		    diff = target - num
 		    
-		    if extra in seen:
+		    if diff in freq:
 		        return True
-		        break
-		    seen.add(num)
+		        
+		    freq[num] = i
 		    
 		return False
