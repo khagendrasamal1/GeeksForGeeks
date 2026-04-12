@@ -1,11 +1,17 @@
 class Solution:
     def reverseWords(self, s):
         # code here
-        new_sent = s.split('.')
+        parts = s.split('.')
         
-        words = [w for w in new_sent if w]
+        words = [w for w in parts if w]
         
-        words.reverse()
+        i = 0
+        j = len(words)-1
         
-        return '.'.join(words)
+        while i < j:
+            words[i], words[j] = words[j], words[i]
+            i += 1
+            j -= 1
+            
+        return ".".join(words)
         
