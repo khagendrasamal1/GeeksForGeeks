@@ -1,20 +1,13 @@
 class Solution:
     def isPalindrome(self, s):
         # code here
-        n = len(s)
-        
         i = 0
-        j = n - 1
+        j = len(s)-1
         
-        isPalindrome = True
-        
-        while i < j:
+        while i<j:
             if s[i] != s[j]:
-                isPalindrome = False
-                break
-            
+                return False
             i += 1
             j -= 1
             
-        return isPalindrome
-        
+        return True
