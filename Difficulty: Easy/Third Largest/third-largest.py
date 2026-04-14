@@ -1,22 +1,20 @@
 class Solution:
     def thirdLargest(self,arr):
         # code here
-        if len(arr) < 3:
-            return -1
-
-        first = float('-inf')
-        second = float('-inf')
-        third = float('-inf')
-    
+        lar = sec_lar = thi_lar = float('-inf')
+        
         for num in arr:
-            if num >= first:
-                third = second
-                second = first
-                first = num
-            elif num >= second:
-                third = second
-                second = num
-            elif num >= third:
-                third = num
-    
-        return third
+            if num > lar:
+                thi_lar = sec_lar
+                sec_lar = lar
+                lar = num
+            elif num > sec_lar:
+                thi_lar = sec_lar
+                sec_lar = num
+            elif num > thi_lar:
+                thi_lar = num
+                
+        if thi_lar != float('-inf'):
+            return thi_lar
+        else:
+            return -1
