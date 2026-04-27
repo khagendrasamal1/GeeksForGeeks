@@ -1,20 +1,15 @@
 class Solution:
     def nonRepeatingChar(self,s):
         #code here
-        arr = [0] * 26
+        freq = {}
         
         for ch in s:
-            index = ord(ch) - ord('a')
-            arr[index] += 1
+            freq[ch] = freq.get(ch, 0)+1
             
         for ch in s:
-            index = ord(ch) - ord('a')
-            if arr[index] == 1:
+            if freq[ch] == 1:
                 return ch
-                break
-            
-        else:
-            return '$'
-        
+                
+        return -1
     
     
