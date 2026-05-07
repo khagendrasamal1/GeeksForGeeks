@@ -9,11 +9,10 @@ class Solution:
     def searchKey(self, head, key):
         #Code here
         curr = head
-        
-        while curr:
-            if curr.data == key:
+        while curr is not None:
+            if key == curr.data:
                 return True
-            curr = curr.next;
-            
+            curr = curr.next
+                
         return False
         
